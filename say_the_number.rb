@@ -68,15 +68,17 @@ multiples_of_ten = Array["Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "
     end
   else
     if arr[0] =="0" and arr[1] == "0" and arr[2] == "0"
-      return ""
+      return " "
     elsif arr[0] !="0" and arr[1] != "0" and arr[2] == "0"
       return digit_to_word(arr[0].to_i)+" hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase
     elsif arr[0] !="0" and arr[1] == "0" and arr[2] == "0"
       return digit_to_word(arr[0].to_i) + "hundred "
     elsif arr[0] =="0" and arr[1] != "0" and arr[2] == "0"
-      return " and " + multiples_of_ten[arr[1].to_i - 1].downcase
+      return "and " + multiples_of_ten[arr[1].to_i - 1].downcase
     elsif arr[0] =="0" and arr[1] == "0" and arr[2] != "0"
       return " and " + digit_to_word(arr[2].to_i)
+    elsif arr[0] =="0" and arr[1] == "1" and arr[2] != "0"
+      return " and " + digit_to_word((arr[1]+arr[2]).to_i).downcase
     elsif arr[0] =="0" and arr[1] != "0" and arr[2] != "0"
       return " and " + multiples_of_ten[arr[1].to_i - 1].downcase + "-" + digit_to_word(arr[2].to_i).downcase
     elsif arr[0] !="0" and arr[1] == "0" and arr[2] != "0"
@@ -94,34 +96,34 @@ def f99(arr)
   #array of multiples of tens
 multiples_of_ten = Array["Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"]
   if arr.length == 1
-    return digit_to_word(arr[0].to_i) + " thousand "
+    return digit_to_word(arr[0].to_i) + " thousand"
   elsif arr.length == 2
     if arr[1] == "0"
       return multiples_of_ten[arr[0].to_i - 1] + " thousand"
     elsif arr[0] == "1"
       return digit_to_word((arr[0]+arr[1]).to_i) + " thousand"
     else
-      return multiples_of_ten[arr[0].to_i - 1] +"-"+ digit_to_word(arr[1].to_i).downcase + " thousand"
+      return multiples_of_ten[arr[0].to_i - 1] +"-"+ digit_to_word(arr[1].to_i).downcase + " thousand,"
     end
   else
     if arr[0] =="0" and arr[1] == "0" and arr[2] == "0"
-      return ""
+      return " "
     elsif arr[0] !="0" and arr[1] != "0" and arr[2] == "0"
-      return digit_to_word(arr[0].to_i)+" hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + " thousand"
+      return digit_to_word(arr[0].to_i)+" hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + " thousand, "
     elsif arr[0] !="0" and arr[1] == "0" and arr[2] == "0"
-      return digit_to_word(arr[0].to_i) + " hundred thousand"
+      return digit_to_word(arr[0].to_i) + " hundred thousand, "
     elsif arr[0] =="0" and arr[1] != "0" and arr[2] == "0"
-      return multiples_of_ten[arr[1].to_i - 1].downcase + " thousand"
+      return multiples_of_ten[arr[1].to_i - 1].downcase + " thousand, "
     elsif arr[0] =="0" and arr[1] == "0" and arr[2] != "0"
-      return digit_to_word(arr[2].to_i) + " thousand"
+      return digit_to_word(arr[2].to_i) + " thousand, "
     elsif arr[0] =="0" and arr[1] != "0" and arr[2] != "0"
-      return multiples_of_ten[arr[1].to_i - 1].downcase + " " + digit_to_word(arr[2].to_i).downcase + " thousand"
+      return multiples_of_ten[arr[1].to_i - 1].downcase + "-" + digit_to_word(arr[2].to_i).downcase + " thousand, "
     elsif arr[0] !="0" and arr[1] == "0" and arr[2] != "0"
-      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word(arr[2].to_i).downcase + " thousand"
+      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word(arr[2].to_i).downcase + " thousand, "
     elsif arr[0] !="0" and arr[1] == "1" and arr[2] != "0"
-      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word((arr[1]+arr[2]).to_i).downcase + " thousanad"
+      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word((arr[1]+arr[2]).to_i).downcase + " thousanad, "
     elsif arr[0] !="0" and arr[1] != "0" and arr[2] != "0"
-      return digit_to_word(arr[0].to_i) + " hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + "-" + digit_to_word(arr[2].to_i).downcase + " thousand"
+      return digit_to_word(arr[0].to_i) + " hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + "-" + digit_to_word(arr[2].to_i).downcase + " thousand, "
     end
   end
 end
@@ -131,34 +133,34 @@ def f999(arr)
   #array of multiples of tens
 multiples_of_ten = Array["Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"]
   if arr.length == 1
-    return digit_to_word(arr[0].to_i) + " million"
+    return digit_to_word(arr[0].to_i) + " million, "
   elsif arr.length == 2
     if arr[1] == "0"
-      return multiples_of_ten[arr[0].to_i - 1] + " million"
+      return multiples_of_ten[arr[0].to_i - 1] + " million, "
     elsif arr[0] == "1"
-      return digit_to_word((arr[0]+arr[1]).to_i) + " million"
+      return digit_to_word((arr[0]+arr[1]).to_i) + " million, "
     else
-      return multiples_of_ten[arr[0].to_i - 1] +"-"+ digit_to_word(arr[1].to_i).downcase + " million"
+      return multiples_of_ten[arr[0].to_i - 1] +"-"+ digit_to_word(arr[1].to_i).downcase + " million, "
     end
   else
     if arr[0] =="0" and arr[1] == "0" and arr[2] == "0"
-      return ""
+      return " "
     elsif arr[0] !="0" and arr[1] != "0" and arr[2] == "0"
-      return digit_to_word(arr[0].to_i)+" hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + " million"
+      return digit_to_word(arr[0].to_i)+" hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + " million, "
     elsif arr[0] !="0" and arr[1] == "0" and arr[2] == "0"
-      return digit_to_word(arr[0].to_i) + " hundred million"
+      return digit_to_word(arr[0].to_i) + " hundred million, "
     elsif arr[0] =="0" and arr[1] != "0" and arr[2] == "0"
-      return multiples_of_ten[arr[1].to_i - 1].downcase + " million"
+      return multiples_of_ten[arr[1].to_i - 1].downcase + " million, "
     elsif arr[0] =="0" and arr[1] == "0" and arr[2] != "0"
-      return digit_to_word(arr[2].to_i) + "million "
+      return digit_to_word(arr[2].to_i) + "million, "
     elsif arr[0] =="0" and arr[1] != "0" and arr[2] != "0"
-      return multiples_of_ten[arr[1].to_i - 1].downcase + " " + digit_to_word(arr[2].to_i).downcase + " million"
+      return multiples_of_ten[arr[1].to_i - 1].downcase + " " + digit_to_word(arr[2].to_i).downcase + " million, "
     elsif arr[0] !="0" and arr[1] == "0" and arr[2] != "0"
-      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word(arr[2].to_i).downcase + "million"
+      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word(arr[2].to_i).downcase + "million, "
     elsif arr[0] !="0" and arr[1] == "1" and arr[2] != "0"
-      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word((arr[1]+arr[2]).to_i).downcase + " million"
+      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word((arr[1]+arr[2]).to_i).downcase + " million, "
     elsif arr[0] !="0" and arr[1] != "0" and arr[2] != "0"
-      return digit_to_word(arr[0].to_i) + " hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + "-" + digit_to_word(arr[2].to_i).downcase + " million"
+      return digit_to_word(arr[0].to_i) + " hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + "-" + digit_to_word(arr[2].to_i).downcase + " million, "
     end
   end
 end
@@ -167,34 +169,34 @@ def f9999(arr)
   #array of multiples of tens
 multiples_of_ten = Array["Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"]
   if arr.length == 1
-    return digit_to_word(arr[0].to_i) + " billion"
+    return digit_to_word(arr[0].to_i) + " billion, "
   elsif arr.length == 2
     if arr[1] == "0"
-      return multiples_of_ten[arr[0].to_i - 1] + " billion"
+      return multiples_of_ten[arr[0].to_i - 1] + " billion, "
     elsif arr[0] == "1"
-      return digit_to_word((arr[0]+arr[1]).to_i) + " billion"
+      return digit_to_word((arr[0]+arr[1]).to_i) + " billion, "
     else
-      return multiples_of_ten[arr[0].to_i - 1] +"-"+ digit_to_word(arr[1].to_i).downcase + " billion"
+      return multiples_of_ten[arr[0].to_i - 1] +"-"+ digit_to_word(arr[1].to_i).downcase + " billion, "
     end
   else
     if arr[0] =="0" and arr[1] == "0" and arr[2] == "0"
-      return ""
+      return " "
     elsif arr[0] !="0" and arr[1] != "0" and arr[2] == "0"
-      return digit_to_word(arr[0].to_i)+" hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + " billion"
+      return digit_to_word(arr[0].to_i)+" hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + " billion, "
     elsif arr[0] !="0" and arr[1] == "0" and arr[2] == "0"
       return digit_to_word(arr[0].to_i) + " hundred billion"
     elsif arr[0] =="0" and arr[1] != "0" and arr[2] == "0"
-      return multiples_of_ten[arr[1].to_i - 1].downcase + " billion"
+      return multiples_of_ten[arr[1].to_i - 1].downcase + " billion, "
     elsif arr[0] =="0" and arr[1] == "0" and arr[2] != "0"
-      return digit_to_word(arr[2].to_i) + "billion"
+      return digit_to_word(arr[2].to_i) + "billion,"
     elsif arr[0] =="0" and arr[1] != "0" and arr[2] != "0"
-      return multiples_of_ten[arr[1].to_i - 1].downcase + " " + digit_to_word(arr[2].to_i).downcase + " billion"
+      return multiples_of_ten[arr[1].to_i - 1].downcase + " " + digit_to_word(arr[2].to_i).downcase + " billion, "
     elsif arr[0] !="0" and arr[1] == "0" and arr[2] != "0"
-      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word(arr[2].to_i).downcase + "billion "
+      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word(arr[2].to_i).downcase + " billion, "
     elsif arr[0] !="0" and arr[1] == "1" and arr[2] != "0"
-      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word((arr[1]+arr[2]).to_i).downcase + " billion"
+      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word((arr[1]+arr[2]).to_i).downcase + " billion, "
     elsif arr[0] !="0" and arr[1] != "0" and arr[2] != "0"
-      return digit_to_word(arr[0].to_i) + " hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + "-" + digit_to_word(arr[2].to_i).downcase + " billion"
+      return digit_to_word(arr[0].to_i) + " hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + "-" + digit_to_word(arr[2].to_i).downcase + " billion, "
     end
   end
 end
@@ -203,34 +205,34 @@ def f99999(arr)
   #array of multiples of tens
 multiples_of_ten = Array["Ten", "Twenty", "Thirty", "Forty", "Fifty", "Sixty", "Seventy", "Eighty", "Ninety"]
   if arr.length == 1
-    return digit_to_word(arr[0].to_i) + " trillion"
+    return digit_to_word(arr[0].to_i) + " trillion, "
   elsif arr.length == 2
     if arr[1] == "0"
-      return multiples_of_ten[arr[0].to_i - 1] + " trillion"
+      return multiples_of_ten[arr[0].to_i - 1] + " trillion, "
     elsif arr[0] == "1"
-      return digit_to_word((arr[0]+arr[1]).to_i) + " trillion"
+      return digit_to_word((arr[0]+arr[1]).to_i) + " trillion, "
     else
-      return multiples_of_ten[arr[0].to_i - 1] +"-"+ digit_to_word(arr[1].to_i).downcase + " trillion"
+      return multiples_of_ten[arr[0].to_i - 1] +"-"+ digit_to_word(arr[1].to_i).downcase + " trillion, "
     end
   else
     if arr[0] =="0" and arr[1] == "0" and arr[2] == "0"
-      return ""
+      return " "
     elsif arr[0] !="0" and arr[1] != "0" and arr[2] == "0"
-      return digit_to_word(arr[0].to_i)+" hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + " trillion"
+      return digit_to_word(arr[0].to_i)+" hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + " trillion, "
     elsif arr[0] !="0" and arr[1] == "0" and arr[2] == "0"
-      return digit_to_word(arr[0].to_i) + " hundred trillion"
+      return digit_to_word(arr[0].to_i) + " hundred trillion "
     elsif arr[0] =="0" and arr[1] != "0" and arr[2] == "0"
-      return multiples_of_ten[arr[1].to_i - 1].downcase + " trillion"
+      return multiples_of_ten[arr[1].to_i - 1].downcase + " trillion, "
     elsif arr[0] =="0" and arr[1] == "0" and arr[2] != "0"
-      return digit_to_word(arr[2].to_i) + " trillion"
+      return digit_to_word(arr[2].to_i) + " trillion, "
     elsif arr[0] =="0" and arr[1] != "0" and arr[2] != "0"
-      return multiples_of_ten[arr[1].to_i - 1].downcase + " " + digit_to_word(arr[2].to_i).downcase + " trillion"
+      return multiples_of_ten[arr[1].to_i - 1].downcase + " " + digit_to_word(arr[2].to_i).downcase + " trillion, "
     elsif arr[0] !="0" and arr[1] == "0" and arr[2] != "0"
-      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word(arr[2].to_i).downcase + "trillion"
+      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word(arr[2].to_i).downcase + " trillion, "
     elsif arr[0] !="0" and arr[1] == "1" and arr[2] != "0"
-      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word((arr[1]+arr[2]).to_i).downcase + " trillion"
+      return digit_to_word(arr[0].to_i) + " hundred and " + digit_to_word((arr[1]+arr[2]).to_i).downcase + " trillion, "
     elsif arr[0] !="0" and arr[1] != "0" and arr[2] != "0"
-      return digit_to_word(arr[0].to_i) + " hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + "-" + digit_to_word(arr[2].to_i).downcase + " trillion"
+      return digit_to_word(arr[0].to_i) + " hundred and " + multiples_of_ten[arr[1].to_i - 1].downcase + "-" + digit_to_word(arr[2].to_i).downcase + " trillion, "
     end
   end
 end
@@ -258,19 +260,19 @@ def say_the_number(number)
 
   case(two_d_arr.length)
     when(1)
-    number_in_words = f9(two_d_arr[0])
+    number_in_words = f9(two_d_arr[0]) + "."
     when(2) 
-      number_in_words = f99(two_d_arr[0])+ ", " + f9(two_d_arr[1]).downcase
+      number_in_words = f99(two_d_arr[0]) + f9(two_d_arr[1]).downcase + "."
     when(3)
-      number_in_words = f999(two_d_arr[0]) + ", " + f99(two_d_arr[1]).downcase + ", " + f9(two_d_arr[2]).downcase    
+      number_in_words = f999(two_d_arr[0])  + f99(two_d_arr[1]).downcase  + f9(two_d_arr[2]).downcase + "." 
     when(4)
-     number_in_words = f9999(two_d_arr[0]) + ", " + f999(two_d_arr[1]).downcase + ", " + f99(two_d_arr[2]).downcase + ", " + f9(two_d_arr[3]).downcase 
+     number_in_words = f9999(two_d_arr[0]) + f999(two_d_arr[1]).downcase + f99(two_d_arr[2]).downcase + f9(two_d_arr[3]).downcase + "."
     when(5)
-    number_in_words = f99999(two_d_arr[0]) + ", " + f9999(two_d_arr[1]).downcase + ", " + f999(two_d_arr[2]).downcase + ", " + f99(two_d_arr[3]).downcase + f9(two_d_arr[4]).downcase 
+    number_in_words = f99999(two_d_arr[0]) + f9999(two_d_arr[1]).downcase + f999(two_d_arr[2]).downcase +  f99(two_d_arr[3]).downcase + f9(two_d_arr[4]).downcase + "."
     else
     number_in_words = "The number is too big it can not be converted because it is exceeding a trillion"
   end
   return number_in_words
 end
 
-
+# puts say_the_number(1001) for testing
